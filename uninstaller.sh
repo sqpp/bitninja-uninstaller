@@ -32,7 +32,7 @@ Options:
   -h, --help                   Show this help message
   -v, --version                Show version information
   -d, --debug                  Enable debug mode
-  -a, --appid-fix	       Fix App_Id Eror 
+  -a, --appid-fix	       Fix App_Id Error
 "
 
 # Function to display the help message
@@ -78,8 +78,11 @@ printf "         Please contact our support if you need assistance!             
 printf " Visit your dashboard at admin.bitninja.io or email at support@bitninja.io \n"
 printf "\n"
 printf "++++3++#####++++#258hh gllkg+9++++glglg#+++#+####XXX+######++589fsf#####g+g\n\n"
-apt-get -qq purge bitninja* -y
-apt-get -qq install bitninja* -y
+echo "[Uninstaller]> Reinstalling..."
+systemctl stop bitninja.service
+apt-get -qq purge bitninja* -y > /dev/null
+apt-get -qq install bitninja* -y > /dev/null
+echo "[Uninstaller]> BitNinja has been reinstalled..."
 }
 
 reinstall_yum() {
@@ -90,6 +93,7 @@ printf "         Please contact our support if you need assistance!             
 printf " Visit your dashboard at admin.bitninja.io or email at support@bitninja.io \n"
 printf "\n"
 printf "++++3++#####++++#258hh gllkg+9++++glglg#+++#+####XXX+######++589fsf#####g+g\n\n"
+systemctl stop bitninja.service
 yum -q remove bitninja* -y
 yum -q install bitninja* -y
 }
@@ -103,6 +107,7 @@ printf "         Please contact our support if you need assistance!             
 printf " Visit your dashboard at admin.bitninja.io or email at support@bitninja.io \n"
 printf "\n"
 printf "++++3++#####++++#258hh gllkg+9++++glglg#+++#+####XXX+######++589fsf#####g+g\n\n"
+  systemctl stop bitninja.service
   apt-get -qq purge bitninja* -y
   rm -rf /var/lib/bitninja*
   rm -rf /var/log/bitninja*
@@ -132,6 +137,7 @@ printf " Visit your dashboard at admin.bitninja.io or email at support@bitninja.
 printf "\n"
 printf "++++3++#####++++#258hh gllkg+9++++glglg#+++#+####XXX+######++589fsf#####g+g\n\n"
 
+  systemctl stop bitninja.service
   yum -q remove bitninja* -y
   rm -rf /var/lib/bitninja*
   rm -rf /var/log/bitninja*
